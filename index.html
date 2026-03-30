@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simay Otlaca — CS Student & Builder</title>
+  <meta name="description" content="Simay Otlaca — CS student at Sabancı University. Building game engines, ML systems, and mobile apps." />
+
+  <!-- Open Graph / Social preview -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://simayotlaca.github.io/portfolio/" />
+  <meta property="og:title"       content="Simay Otlaca — Game Developer & CS Student" />
+  <meta property="og:description" content="Unity/C# game systems, zero-alloc architecture, on-device ML at 30 FPS. Playable demo included." />
+  <meta property="og:image"       content="https://simayotlaca.github.io/portfolio/assets/og-banner.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Simay Otlaca — Game Developer & CS Student" />
+  <meta name="twitter:description" content="Unity/C# game systems, zero-alloc architecture, on-device ML at 30 FPS. Playable demo included." />
+  <meta name="twitter:image"       content="https://simayotlaca.github.io/portfolio/assets/og-banner.png" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  
+  <link rel="preload" as="image" href="assets/profile.jpg" />
+  <link rel="stylesheet" href="style.css?v=2" />
+</head>
+<body>
+  <div id="cursor-glow"></div>
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div id="hero-particles" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">Simay Otlaca</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav-mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-text reveal">
+        <h1 class="hero-name"><span style="font-weight: 400; font-size: 0.85em; opacity: 0.9;">Hi, I'm</span>&nbsp;<span class="hero-accent" style="white-space: nowrap;">Simay</span></h1>
+        <p class="hero-role-line">
+          <span class="role-static">I build </span><span class="hero-typed" id="hero-typed"></span>
+        </p>
+        <p class="hero-bio">
+          3rd-year Computer Engineering student at Sabancı University. I build game systems, on-device ML pipelines, and backend tools, focusing on how they perform at runtime — not just whether they compile.
+        </p>
+        <div class="hero-links">
+          <a href="#projects" class="btn-primary">See my work</a>
+          <a href="#contact" class="btn-ghost">Get in Touch</a>
+        </div>
+      </div>
+      <div class="hero-photo reveal reveal-delay">
+        <div class="photo-wrapper">
+          <img src="assets/profile.jpg" alt="Simay Otlaca" class="photo-placeholder" />
+        </div>
+
+      </div>
+    </div>
+    <div class="scroll-cue reveal reveal-delay"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="premium-about">
+    <div class="container">
+    <div class="about-hero reveal">
+      <h2 class="about-title">High-Performance Gameplay Systems</h2>
+      <p class="about-subtitle">
+        CS Student building zero-allocation gameplay systems for real-time games.<br>
+        On-device ML integrated at runtime.
+      </p>
+    </div>
+
+    <div class="about-split-layout reveal">
+      <div class="about-left-col">
+        <div class="about-stats">
+          <a href="#proj-blast" class="stat-item" style="text-decoration: none; color: inherit;">
+            <span class="stat-val stat-green" data-start="0" data-end="0" data-suffix="">0</span>
+            <span class="stat-label">GC allocs<br><em>per frame, gameplay</em></span>
+          </a>
+          <a href="#proj-blast" class="stat-item" style="text-decoration: none; color: inherit;">
+            <span class="stat-val stat-cyan" data-start="0" data-end="200" data-suffix="+">0+</span>
+            <span class="stat-label">concurrent tweens<br><em>custom engine</em></span>
+          </a>
+          <a href="#proj-vision" class="stat-item" style="text-decoration: none; color: inherit;">
+            <span class="stat-val stat-violet" data-start="0" data-end="30" data-suffix=" FPS">0 FPS</span>
+            <span class="stat-label">on-device ML<br><em>no cloud, CoreML</em></span>
+          </a>
+          <a href="#proj-ai" class="stat-item" style="text-decoration: none; color: inherit;">
+            <span class="stat-val stat-rose" data-start="0" data-end="29" data-suffix="/29">0/29</span>
+            <span class="stat-label">tests passed<br><em>AI agent</em></span>
+          </a>
+        </div>
+        <!-- Removed tech-tags-list per user request -->
+      </div>
+        
+      <div class="about-right-col">
+        <h3 class="skills-heading">Technical Skills</h3>
+        <div class="tech-array-grid reveal stagger-child">
+          <span class="tech-array-item">Python</span>
+          <span class="tech-array-item">C++</span>
+          <span class="tech-array-item">C#</span>
+          <span class="tech-array-item">Unity</span>
+          <span class="tech-array-item">PyTorch</span>
+          <span class="tech-array-item">Transformers</span>
+          <span class="tech-array-item">Pandas</span>
+          <span class="tech-array-item">NumPy</span>
+          <span class="tech-array-item">MySQL</span>
+          <span class="tech-array-item">REST APIs</span>
+          <span class="tech-array-item">Java</span>
+          <span class="tech-array-item">Android / Kotlin</span>
+          <span class="tech-array-item">iOS / Swift</span>
+          <span class="tech-array-item">Flutter</span>
+          <span class="tech-array-item">JS/TS</span>
+          <span class="tech-array-item">Git</span>
+          <span class="tech-array-item">Linux/Unix</span>
+          <span class="tech-array-item">Algorithms</span>
+          <span class="tech-array-item">OOP</span>
+          <span class="tech-array-item">Real-Time Systems</span>
+          <span class="tech-array-item">Object Pooling</span>
+          <span class="tech-array-item">Optimization</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+
+      <h2 class="section-heading reveal">Where I've Worked</h2>
+      <div class="exp-list timeline-list">
+        
+        <!-- Software Engineer -->
+        <div class="exp-item stagger-child">
+          <div class="timeline-node"></div>
+          <div class="exp-content">
+            <span class="timeline-date">Aug &mdash; Dec 2025</span>
+            <div class="exp-header">
+              <h3 class="exp-role">Software Engineer</h3>
+              <span class="exp-company">Kuika</span>
+            </div>
+            <p class="exp-sub">Intelligent Systems Development Platform — Istanbul</p>
+            <ul class="exp-bullets">
+              <li>Built and maintained production-grade RESTful APIs (PHP) for user activity tracking, notifications, and internal integrations</li>
+              <li>Designed normalized relational database schemas and optimized SQL queries (joins, indexing) to improve performance in high-traffic workflows</li>
+              <li>Integrated institutional data sources to automate internal reporting pipelines</li>
+              <li>Worked on a corporate recognition platform with a real user base</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="tag">PHP</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">Git</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEW: Learning Assistant -->
+        <div class="exp-item stagger-child">
+          <div class="timeline-node"></div>
+          <div class="exp-content">
+            <span class="timeline-date">Feb &mdash; Jun 2025</span>
+            <div class="exp-header">
+              <h3 class="exp-role">Learning Assistant</h3>
+              <span class="exp-company">Sabancı University</span>
+            </div>
+            <p class="exp-sub">Introduction to Computer Science (CS201)</p>
+            <ul class="exp-bullets">
+              <li>Guided students through weekly lab sessions on core C++ topics including control flow, functions, OOP, file I/O, and sorting algorithms</li>
+              <li>Provided hands-on debugging support and helped students develop systematic problem-solving approaches in their first programming course</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Sales Support Intern -->
+        <div class="exp-item stagger-child">
+          <div class="timeline-node"></div>
+          <div class="exp-content">
+            <span class="timeline-date">Jun &mdash; Sep 2024</span>
+            <div class="exp-header">
+              <h3 class="exp-role">Sales Support Intern</h3>
+              <span class="exp-company">Doğuş Otomotiv</span>
+            </div>
+            <p class="exp-sub">Istanbul</p>
+            <ul class="exp-bullets">
+              <li>Supported vehicle order processing, CRM updates, inventory checks, and pre-sale documentation</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+
+      <h2 class="section-heading reveal">Things I've Built</h2>
+      <div class="proj-list">
+
+        <!-- 01 BLAST MECHANIC — PLAYABLE DEMO -->
+        <div class="proj-item proj-featured reveal" id="proj-blast">
+          <div class="proj-num-col">
+            <span class="proj-num">01</span>
+          </div>
+          <div class="proj-content">
+            <div class="proj-main-layout">
+              <div class="proj-text-side">
+                <div class="proj-header proj-header-clean">
+                  <div class="proj-featured-badge">Featured</div>
+                  <h3 class="proj-title">Blast Mechanic — Match-3 Puzzle Game</h3>
+                  <a href="https://github.com/simayotlaca/BlastMechanicCase" target="_blank" rel="noopener" class="proj-github-link">View on GitHub →</a>
+                </div>
+                <p class="proj-desc">Built a Unity Match-3 game from scratch with zero GC allocation during gameplay — struct-based data, stamp-based BFS, fixed-size queues, and an object pooling system. Custom tween engine supporting 200 concurrent tweens with 7 easing functions. 3-layer deadlock resolution that guarantees the board is always playable.</p>
+                <div class="proj-tags">
+                  <span class="tag">Unity</span>
+                  <span class="tag">C#</span>
+                  <span class="tag">Zero-Alloc</span>
+                  <span class="tag">Custom Tween Engine</span>
+                  <span class="tag">BFS</span>
+                  <span class="tag">Object Pooling</span>
+                </div>
+                <span class="proj-proof">0 GC allocations per gameplay frame</span>
+              </div>
+              <!-- GAME CANVAS — always visible, right side of card -->
+              <div class="proj-visual-side">
+                <div class="game-embed" id="game-embed">
+                  <div class="game-embed-header lets-play-banner">
+                    <div class="sparkle-bg">
+                      <span class="sparkle s1">✦</span>
+                      <span class="sparkle s2">✧</span>
+                      <span class="sparkle s3">✦</span>
+                      <span class="sparkle s4">✧</span>
+                      <span class="sparkle s5">✦</span>
+                      <span class="sparkle s6">✧</span>
+                      <span class="sparkle s7">✦</span>
+                      <span class="sparkle s8">✧</span>
+                    </div>
+                    <span class="lets-play-text">LET'S PLAY</span>
+                  </div>
+                  <div class="game-canvas-wrapper">
+                    <canvas id="blast-canvas"></canvas>
+                    <div class="game-instructions">
+                      <p>Click <strong>2+ same-color tiles</strong> to blast.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 AI COMPANION -->
+        <div class="proj-item reveal" id="proj-ai">
+          <div class="proj-num-col">
+            <span class="proj-num">02</span>
+          </div>
+          <div class="proj-content">
+            <div class="proj-main-layout">
+              <div class="proj-text-side">
+                <div class="proj-header proj-header-clean">
+                  <h3 class="proj-title">AI Game Companion Agent</h3>
+                  <a href="https://github.com/simayotlaca/game-companion-agent" target="_blank" rel="noopener" class="proj-github-link">View on GitHub →</a>
+                </div>
+                <p class="proj-desc">Autonomous AI companion for a tactical grid game. BLIP-2 reads the board as an image; Mistral-7B reasons about strategy. The agent adapts personality to player behavior and enforces structured outputs via JSON schema validation — validated across 29 automated tests.</p>
+                <div class="proj-tags">
+                  <span class="tag">BLIP-2</span>
+                  <span class="tag">Mistral-7B</span>
+                  <span class="tag">PyTorch</span>
+                  <span class="tag">JSON Schema</span>
+                  <span class="tag">Transformers</span>
+                </div>
+                <span class="proj-proof">29/29 automated tests passing</span>
+              </div>
+              <div class="proj-visual-side">
+                <div class="proj-img-wrap">
+                  <img src="assets/ai_companion.jpg" alt="AI Game Companion" class="proj-img" loading="lazy" />
+                  <div class="proj-img-overlay"><span>BLIP-2 · Mistral-7B · 29/29 ✓</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 iOS VISION APP -->
+        <div class="proj-item reveal" id="proj-vision">
+          <div class="proj-num-col">
+            <span class="proj-num">03</span>
+          </div>
+          <div class="proj-content">
+            <div class="proj-main-layout">
+              <div class="proj-text-side">
+                <div class="proj-header proj-header-clean">
+                  <h3 class="proj-title">Real-Time Object Detection iOS App</h3>
+                  <span class="proj-github-link muted">Team project / Dr. Kamer Kaya</span>
+                </div>
+                <p class="proj-desc">Native iOS app running YOLOv11 entirely on-device via CoreML at stable 30 FPS — no cloud dependency. Built for visually impaired users: detects objects in real time and plays audio feedback. Managed the full ML pipeline from model conversion to iOS integration.</p>
+                <div class="proj-tags">
+                  <span class="tag">Swift</span>
+                  <span class="tag">CoreML</span>
+                  <span class="tag">YOLOv11</span>
+                  <span class="tag">AVFoundation</span>
+                  <span class="tag">Accessibility</span>
+                </div>
+                <span class="proj-proof">30 FPS on-device — no cloud, no server</span>
+              </div>
+              <div class="proj-visual-side">
+                <div class="proj-img-wrap">
+                  <img src="assets/ios_vision.png" alt="iOS Object Detection App" class="proj-img" loading="lazy" />
+                  <div class="proj-img-overlay"><span>YOLOv11 · CoreML · 30 FPS</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 PUREPLATE + NATIVE REBUILD -->
+        <div class="proj-item reveal" id="proj-pureplate">
+          <div class="proj-num-col">
+            <span class="proj-num">04</span>
+          </div>
+          <div class="proj-content">
+            <!-- Phase 1: Flutter -->
+            <div class="proj-main-layout">
+              <div class="proj-text-side">
+                <div class="proj-header proj-header-clean">
+                  <h3 class="proj-title proj-title-with-phase">PurePlate — Cross-Platform Nutrition App<span class="proj-phase-inline phase-muted">Phase I — Flutter</span></h3>
+                  <a href="https://github.com/simayotlaca/PurePlate_cs310project" target="_blank" rel="noopener" class="proj-github-link">View on GitHub →</a>
+                </div>
+                <p class="proj-desc">Cross-platform nutrition app featuring a 3-layer dynamic recommendation engine that simultaneously filters recipes by calorie budget, available ingredients, and prep time. Built with a clean Provider-based architecture featuring dependency injection, comprehensive unit testing (Mocktail) decoupled from Firebase services, and a custom real-time calorie visualization ring.</p>
+                <div class="proj-tags">
+                  <span class="tag">Flutter</span>
+                  <span class="tag">Provider DI</span>
+                  <span class="tag">Mocktail Tests</span>
+                  <span class="tag">Firebase Auth</span>
+                  <span class="tag">Firestore</span>
+                </div>
+              </div>
+              <div class="proj-visual-side">
+                <div class="live-demo-label">
+                  <span class="pulse-dot-green"></span>
+                  <span class="live-demo-text">LIVE DEMO</span>
+                </div>
+                <div class="pureplate-phone-frame">
+                  <div class="pureplate-phone-inner">
+                    <div class="pureplate-notch"></div>
+                    <video
+                      class="pureplate-video"
+                      src="assets/pureplate-demo.mp4"
+                      autoplay
+                      muted
+                      loop
+                      playsinline
+                      poster="assets/pureplate_app.png"
+                      onloadedmetadata="this.playbackRate = 1.7;"
+                    ></video>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Evolution Bridge -->
+            <div class="proj-evolution-bridge">
+              <div class="evolution-connector">
+                <div class="evolution-line-left"></div>
+                <div class="evolution-center">
+                  <div class="evolution-arrow">
+                    <span class="evolution-dot"></span>
+                    <span class="evolution-dot"></span>
+                    <span class="evolution-dot"></span>
+                  </div>
+                  <p class="evolution-text">Then I wanted to know exactly what Flutter was hiding under the hood...</p>
+                </div>
+                <div class="evolution-line-right"></div>
+              </div>
+            </div>
+
+            <!-- Phase 2: Native Android -->
+            <div class="proj-phase2">
+              <div class="proj-main-layout">
+                <div class="proj-text-side">
+                  <div class="proj-header proj-header-clean">
+                    <h3 class="proj-title-phase2 proj-title-with-phase">Native Android Calorie Tracker<span class="proj-phase-inline phase-muted">Phase II — Native Rebuild</span></h3>
+                    <a href="https://github.com/simayotlaca/-CalorieTracker" target="_blank" rel="noopener" class="proj-github-link">View on GitHub →</a>
+                  </div>
+                  <p class="proj-desc">Rebuilt the same app from scratch in native Kotlin/Android — not as a port, but to understand what Flutter actually abstracts away. MVVM + Room for local persistence, coroutines for async handling. Going native revealed exactly where the framework hides complexity.</p>
+                  <div class="proj-tags">
+                    <span class="tag">Kotlin</span>
+                    <span class="tag">Android</span>
+                    <span class="tag">MVVM</span>
+                    <span class="tag">Room</span>
+                    <span class="tag">Coroutines</span>
+                  </div>
+                  <span class="proj-proof">Native rebuild — same product, zero abstraction layer</span>
+                </div>
+                <div class="proj-visual-side">
+                  <div class="proj-img-wrap">
+                    <img src="assets/pureplate_app.png" alt="Native Android Calorie Tracker" class="proj-img" loading="lazy" />
+                    <div class="proj-img-overlay"><span>Kotlin · MVVM · Room</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 Q-RANKING -->
+        <div class="proj-item reveal">
+          <div class="proj-num-col">
+            <span class="proj-num">05</span>
+          </div>
+          <div class="proj-content">
+            <div class="proj-main-layout">
+              <div class="proj-text-side">
+                <div class="proj-header proj-header-clean">
+                  <h3 class="proj-title">Q-Ranking: University Ranking Prediction</h3>
+                  <a href="https://github.com/simayotlaca/DSA210-Data-Science-Project" target="_blank" rel="noopener" class="proj-github-link">View on GitHub →</a>
+                </div>
+                <p class="proj-desc">Merged 4 heterogeneous global datasets (QS, THE, CSRankings, WIPO) via automated ETL across 1,000+ universities. Trained Random Forest and Gradient Boosting with custom feature engineering. The most interesting part: geographic bias analysis showing systematic over/under-representation by continent.</p>
+                <div class="proj-tags">
+                  <span class="tag">Scikit-learn</span>
+                  <span class="tag">Pandas</span>
+                  <span class="tag">ETL</span>
+                  <span class="tag">Random Forest</span>
+                </div>
+              </div>
+              <div class="proj-visual-side">
+                <div class="proj-img-wrap">
+                  <img src="assets/qranking_dashboard.png" alt="Q-Ranking Dashboard" class="proj-img" loading="lazy" />
+                  <div class="proj-img-overlay"><span>1,000+ Universities · Random Forest</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06 FPGA -->
+        <div class="proj-item reveal">
+          <div class="proj-num-col">
+            <span class="proj-num">06</span>
+          </div>
+          <div class="proj-content">
+            <div class="proj-header proj-header-clean">
+              <h3 class="proj-title">FPGA Mastermind Game</h3>
+              <a href="https://github.com/simayotlaca/fpga-mastermind-game" target="_blank" rel="noopener" class="proj-github-link">View on GitHub →</a>
+            </div>
+            <p class="proj-desc">Game logic implemented entirely in hardware using hierarchical FSMs on Tang Nano 9K FPGA. Wrote timing-critical modules including a countdown timer and button debouncing. Spent more time debugging clock domain issues than I'd like to admit — turns out hardware has strong opinions about timing.</p>
+            <div class="proj-tags">
+              <span class="tag">Verilog HDL</span>
+              <span class="tag">FSM Design</span>
+              <span class="tag">Tang Nano 9K</span>
+              <span class="tag">Real-Time Systems</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+
+      <h2 class="section-heading reveal">Academic Background</h2>
+      <div class="edu-list reveal">
+        <div class="edu-item">
+          <div class="edu-left"><span class="edu-date">2021 – 2027</span></div>
+          <div class="edu-right">
+            <h3 class="edu-school">Sabancı University</h3>
+            <p class="edu-degree">B.S. Computer Science & Engineering</p>
+            <p class="edu-detail">CGPA: 3.38 / 4.00</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-left"><span class="edu-date">Sep '26 – Jan '27</span></div>
+          <div class="edu-right">
+            <h3 class="edu-school">Hong Kong Polytechnic University</h3>
+            <p class="edu-degree">Study Abroad Exchange — QS World Ranking #54</p>
+            <p class="edu-detail">Upcoming</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-left"><span class="edu-date">2017 – 2021</span></div>
+          <div class="edu-right">
+            <h3 class="edu-school">Akyazı Eyyüp Genç Anatolian High School</h3>
+            <p class="edu-degree">Science Track — High School Diploma</p>
+          </div>
+        </div>
+      </div>
+      <div class="lang-row reveal">
+        <div class="lang-item"><span class="lang-name">Turkish</span><span class="lang-level">Native</span></div>
+        <div class="lang-item"><span class="lang-name">English</span><span class="lang-level">C2</span></div>
+        <div class="lang-item"><span class="lang-name">German</span><span class="lang-level">B1</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-inner reveal">
+
+        <h2 class="section-heading contact-heading">Get in <span class="accent-text">touch</span></h2>
+        <p class="contact-bio">If you'd like to discuss engineering, give feedback on my work, or talk about a role &mdash; my inbox is open.</p>
+        
+        <div class="contact-boxes">
+          <a href="mailto:simay.otlaca@sabanciuniv.edu" class="contact-box" id="contact-email">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>Email</span>
+          </a>
+          <a href="https://github.com/simayotlaca" target="_blank" rel="noopener" class="contact-box" id="contact-github">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            <span>GitHub</span>
+          </a>
+          <a href="https://www.linkedin.com/in/simay-otlaca" target="_blank" rel="noopener" class="contact-box" id="contact-linkedin">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p class="footer-text">© 2026 Simay Otlaca &nbsp;·&nbsp; İstanbul, Türkiye</p>
+    </div>
+  </footer>
+
+  <script src="boardLogic.js"></script>
+  <script src="game.js"></script>
+  <script src="script.js?v=3"></script>
+  <script>
+    // Cursor glow
+    const glow = document.getElementById('cursor-glow');
+    let glowX = 0, glowY = 0, glowTicking = false;
+    document.addEventListener('mousemove', e => {
+      glowX = e.clientX; glowY = e.clientY;
+      if (!glowTicking) {
+        requestAnimationFrame(() => {
+          glow.style.transform = `translate(calc(${glowX}px - 50%), calc(${glowY}px - 50%))`;
+          glowTicking = false;
+        });
+        glowTicking = true;
+      }
+    }, { passive: true });
+
+    // Handle cursor opacity via direct listeners on the project to avoid DOM traversal on every mouse movement
+    const projBlast = document.getElementById('proj-blast');
+    if (projBlast && glow) {
+      projBlast.addEventListener('mouseenter', () => { glow.style.opacity = '0'; }, { passive: true });
+      projBlast.addEventListener('mouseleave', () => { glow.style.opacity = '1'; }, { passive: true });
+    }
+
+    // Typing animation
+    const phrases = [
+      'zero-alloc game engines.',
+      'custom tween systems.',
+      'on-device ML pipelines.',
+      'hardware game logic.',
+      'AI that plays games.',
+    ];
+    let pi = 0, ci = 0, deleting = false;
+    const typedEl = document.getElementById('hero-typed');
+    function typeLoop() {
+      if (!typedEl) return;
+      const phrase = phrases[pi];
+      if (!deleting) {
+        typedEl.textContent = phrase.slice(0, ++ci);
+        if (ci === phrase.length) { deleting = true; setTimeout(typeLoop, 800); return; }
+      } else {
+        typedEl.textContent = phrase.slice(0, --ci);
+        if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+      }
+      setTimeout(typeLoop, deleting ? 22 : 38); /* Faster typing and deleting speeds */
+    }
+    typeLoop();
+
+    function toggleGame() {
+      const embed = document.getElementById('game-embed');
+      const btn = document.getElementById('btn-play-game');
+      if (!embed) return;
+      const isVisible = embed.style.display !== 'none';
+      if (isVisible) {
+        embed.style.display = 'none';
+        if (btn) btn.innerHTML = '<span class="play-icon">▶</span> Play demo';
+      } else {
+        embed.style.display = 'block';
+        if (btn) btn.innerHTML = '✕ close';
+        initBlastGame();
+      }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      initBlastGame();
+    });
+  </script>
+</body>
+</html>
