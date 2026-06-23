@@ -26,7 +26,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   
   <link rel="preload" as="image" href="assets/profile.jpg" />
-  <link rel="stylesheet" href="css/style.css?v=3" />
+  <link rel="stylesheet" href="css/style.css?v=4" />
   <!-- Simple Analytics -->
   <script async defer src="https://scripts.simpleanalytics.com/latest.js"></script>
   <noscript><img src="https://queue.simpleanalytics.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
@@ -352,10 +352,115 @@
           </div>
         </div>
 
-        <!-- 02 AI COMPANION -->
-        <div class="proj-item reveal" id="proj-ai">
+        <!-- 02 SPIN WHEEL — GAMEPLAY -->
+        <div class="proj-item proj-featured reveal" id="proj-wheel">
           <div class="proj-num-col">
             <span class="proj-num">02</span>
+          </div>
+          <div class="proj-content">
+            <div class="proj-main-layout proj-wheel-layout">
+              <div class="proj-text-side">
+                <div class="proj-header proj-header-clean">
+                  <h3 class="proj-title">Spin Wheel: Case-Opening Reward Game</h3>
+                  <span class="proj-github-link muted">Solo Unity project</span>
+                </div>
+                <p class="proj-desc">A mobile reward game I built in Unity. I could've just dumped everything into MonoBehaviours, but I wanted to see if I could structure it properly. So all the real game logic (the run, the wheel, currency, all of it) lives in plain C# classes that one small RunSession glues together, and the rules sit in a static class I can test without even opening Unity. The UI panels don't know about each other at all, they just send little structs through an event bus. The part I'm honestly proud of: a run works like a transaction, so your rewards only count if you leave safely and otherwise reset. That way the whole "you only keep what you bank" rule kind of happened on its own, instead of me holding it together with a bunch of bool flags.</p>
+                <div class="proj-tags">
+                  <span class="tag">Unity</span>
+                  <span class="tag">C#</span>
+                  <span class="tag">Event Bus</span>
+                  <span class="tag">State Machine</span>
+                  <span class="tag">Object Pooling</span>
+                  <span class="tag">ScriptableObjects</span>
+                </div>
+                <span class="proj-proof">Engine-agnostic C# core · allocation-free wheel sampling · commit/rollback run state</span>
+
+                <div class="design-thinking-block">
+                  <button class="dt-toggle" onclick="this.parentElement.classList.toggle('dt-open')">
+                    <span class="dt-toggle-left">
+                      <span class="dt-icon">◈</span>
+                      <span class="dt-label">Under the Hood</span>
+                    </span>
+                    <span class="dt-toggle-hint">tap to explore ↓</span>
+                  </button>
+                  <div class="dt-collapsible">
+                    <div class="dt-accordion">
+                      <div class="dt-acc-item dt-acc-ret dt-acc-open">
+                        <button class="dt-acc-header" onclick="dtAccordionToggle(this)">
+                          <span class="dt-card-title dt-retention">Architecture</span>
+                          <span class="dt-acc-chevron">▸</span>
+                        </button>
+                        <div class="dt-acc-body">
+                          <ul class="dt-list">
+                            <li>Game logic is plain C# behind a thin <em>RunSession</em>, and the rules sit in a static, side-effect-free class I can test without the engine running</li>
+                            <li>Panels never reference each other; they all talk through one small <em>struct-based event bus</em></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="dt-acc-item dt-acc-diff">
+                        <button class="dt-acc-header" onclick="dtAccordionToggle(this)">
+                          <span class="dt-card-title dt-difficulty">State &amp; Correctness</span>
+                          <span class="dt-acc-chevron">▸</span>
+                        </button>
+                        <div class="dt-acc-body">
+                          <ul class="dt-list">
+                            <li>A guarded <em>finite state machine</em> drives the run, so illegal transitions get rejected instead of quietly corrupting state</li>
+                            <li>Meta-progress and currency are <em>transactional</em>: they commit on a clean exit and roll back on a give-up or death</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="dt-acc-item dt-acc-beh">
+                        <button class="dt-acc-header" onclick="dtAccordionToggle(this)">
+                          <span class="dt-card-title dt-behavior">Performance</span>
+                          <span class="dt-acc-chevron">▸</span>
+                        </button>
+                        <div class="dt-acc-body">
+                          <ul class="dt-list">
+                            <li>Every spawned slot, row and fly-icon comes from a <em>generic object pool</em>, and hot data moves as structs, so a spin allocates almost nothing</li>
+                            <li>The event bus reuses its handler lists and <em>snapshots them before dispatch</em>, which keeps it safe to subscribe or unsubscribe mid-event</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="dt-acc-item dt-acc-mon">
+                        <button class="dt-acc-header" onclick="dtAccordionToggle(this)">
+                          <span class="dt-card-title dt-monetization">Reward Logic</span>
+                          <span class="dt-acc-chevron">▸</span>
+                        </button>
+                        <div class="dt-acc-body">
+                          <ul class="dt-list">
+                            <li>The 8 slots are filled by category quotas, then <em>de-duplicated twice</em> so no icon repeats and lookalike skins stay apart</li>
+                            <li>Candidates are bucketed by visual family, so a family with lots of variants <em>can't quietly dominate</em> the wheel</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <!-- GAMEPLAY VIDEO: landscape monitor frame -->
+              <div class="proj-visual-side">
+                <div class="proj-ai-monitor">
+                  <div class="proj-ai-monitor-bar">
+                    <span class="screen-dot red"></span>
+                    <span class="screen-dot yellow"></span>
+                    <span class="screen-dot green"></span>
+                    <span class="screen-title">spin-wheel · gameplay</span>
+                    <span class="screen-live-badge"><span class="live-dot"></span>GAMEPLAY</span>
+                  </div>
+                  <div class="proj-ai-monitor-screen">
+                    <video class="proj-wheel-video" data-src="assets/wheel-gameplay.mp4" poster="assets/wheel-shot.png" autoplay muted loop playsinline preload="none"></video>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 AI COMPANION -->
+        <div class="proj-item reveal" id="proj-ai">
+          <div class="proj-num-col">
+            <span class="proj-num">03</span>
           </div>
           <div class="proj-content">
             <div class="proj-main-layout proj-ai-layout">
@@ -422,10 +527,10 @@
           </div>
         </div>
 
-        <!-- 03 iOS VISION APP -->
+        <!-- 04 iOS VISION APP -->
         <div class="proj-item reveal" id="proj-vision">
           <div class="proj-num-col">
-            <span class="proj-num">03</span>
+            <span class="proj-num">04</span>
           </div>
           <div class="proj-content">
             <div class="proj-main-layout">
@@ -454,10 +559,10 @@
           </div>
         </div>
 
-        <!-- 04 PUREPLATE + NATIVE REBUILD -->
+        <!-- 05 PUREPLATE + NATIVE REBUILD -->
         <div class="proj-item reveal" id="proj-pureplate">
           <div class="proj-num-col">
-            <span class="proj-num">04</span>
+            <span class="proj-num">05</span>
           </div>
           <div class="proj-content">
             <!-- Phase 1: Flutter -->
@@ -545,10 +650,10 @@
           </div>
         </div>
 
-        <!-- 05 Q-RANKING -->
+        <!-- 06 Q-RANKING -->
         <div class="proj-item reveal" id="proj-qranking">
           <div class="proj-num-col">
-            <span class="proj-num">05</span>
+            <span class="proj-num">06</span>
           </div>
           <div class="proj-content">
             <div class="proj-main-layout">
@@ -576,10 +681,10 @@
           </div>
         </div>
 
-        <!-- 06 FPGA -->
+        <!-- 07 FPGA -->
         <div class="proj-item reveal" id="proj-fpga">
           <div class="proj-num-col">
-            <span class="proj-num">06</span>
+            <span class="proj-num">07</span>
           </div>
           <div class="proj-content">
             <div class="proj-main-layout">

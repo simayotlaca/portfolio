@@ -1281,6 +1281,24 @@ ul {
   user-select: none;
 }
 
+/* ── Spin Wheel card (landscape gameplay video) ────────────────── */
+.proj-wheel-layout {
+  grid-template-columns: 1fr 420px;
+}
+
+.proj-wheel-video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 720 / 408;
+  object-fit: contain;
+  display: block;
+  background: #000;
+  cursor: default;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
 /* ── AI Spec List (bullet breakdown) ───────────────────────── */
 .ai-spec-list {
   list-style: none;
